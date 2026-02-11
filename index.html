@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PixelPet Sanctuary</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="panel">
+        <h1>🌈 PixelPet Sanctuary</h1>
+        <p class="subtitle">A tiny Neopets-style browser pet game.</p>
+      </header>
+
+      <section class="panel adopt-panel" id="adoptPanel">
+        <h2>Adopt a Pet</h2>
+        <form id="adoptForm">
+          <label>
+            Pet name
+            <input id="petName" maxlength="18" placeholder="Nova" required />
+          </label>
+          <label>
+            Species
+            <select id="species">
+              <option value="dragon">Mini Dragon 🐉</option>
+              <option value="blob">Moon Blob 🟣</option>
+              <option value="fox">Sky Fox 🦊</option>
+            </select>
+          </label>
+          <button type="submit">Adopt</button>
+        </form>
+      </section>
+
+      <section class="panel hidden" id="gamePanel">
+        <div class="pet-row">
+          <div class="pet-art" id="petArt">🥚</div>
+          <div>
+            <h2 id="petTitle">Your Pet</h2>
+            <p id="petMood">Adopt to begin your adventure.</p>
+            <p>Coins: <strong id="coins">0</strong></p>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <label>Hunger</label>
+            <progress id="hungerBar" max="100" value="60"></progress>
+          </div>
+          <div class="stat">
+            <label>Happiness</label>
+            <progress id="happyBar" max="100" value="60"></progress>
+          </div>
+          <div class="stat">
+            <label>Energy</label>
+            <progress id="energyBar" max="100" value="60"></progress>
+          </div>
+          <div class="stat">
+            <label>Health</label>
+            <progress id="healthBar" max="100" value="70"></progress>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button data-action="feed">🍎 Feed</button>
+          <button data-action="play">🎾 Play</button>
+          <button data-action="rest">🛌 Rest</button>
+          <button data-action="adventure">🗺️ Adventure</button>
+        </div>
+      </section>
+
+      <section class="panel hidden" id="shopPanel">
+        <h2>Shop</h2>
+        <div class="shop-grid" id="shopGrid"></div>
+      </section>
+
+      <section class="panel hidden" id="inventoryPanel">
+        <h2>Inventory</h2>
+        <ul id="inventoryList"></ul>
+      </section>
+    </main>
+
+    <template id="shopItemTemplate">
+      <article class="shop-item">
+        <h3 class="name"></h3>
+        <p class="desc"></p>
+        <p class="cost"></p>
+        <button class="buy">Buy</button>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
